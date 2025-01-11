@@ -8,8 +8,6 @@ const app = express();
 
 app.use(express.json());
 
-app.use('/books', booksRoute)
-
 // Middleware for handling CORS POLICY
 // Option 1: Allow All Origins with Default of cors(*)
 app.use(cors());
@@ -21,6 +19,8 @@ app.use(cors());
 //     allowedHeaders: ['Content-Type'],
 //   })
 // );
+
+app.use('/books', booksRoute);
 
 mongoose
     .connect(mongoURL)
